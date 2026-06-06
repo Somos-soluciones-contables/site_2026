@@ -1,0 +1,43 @@
+name: Refresh Google reviews
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3,15 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Fetch Google reviews
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+          GOOGLE_PROFILE_URL: ${{ secrets.GOOGLE_PROFILE_URL }}
+          GOOGLE_BUSINESS_NAME: ${{ secrets.GOOGLE_BUSINESS_NAME }}
+          GOOGLE_REVIEWS_LANGUAGE: es
+        run: node scripts/fetch-google-reviews.mjs
+
+      - name: Commit refreshed JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- public/data/google-reviews.json; then
+            echo "No hay cambios para guardar."
+            exit 0
+          fi
+          git add public/data/google-reviews.json
+          git commit -m "chore: refresh Google reviews data"
+          git push
