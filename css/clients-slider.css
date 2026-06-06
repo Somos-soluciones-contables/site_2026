@@ -1,0 +1,134 @@
+#carrusel { 
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+    width: 100%; 
+    margin-top: 100px; 
+    padding-left: 100px; 
+    padding-right: 60px;    
+}
+
+#clients-slider {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+#clients-slider::before,
+#clients-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px; 
+    z-index: 2;
+    pointer-events: none;
+}
+
+#clients-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff 0%, #ffffff00 100%);
+}
+
+#clients-slider::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, #ffffff00 100%);
+}
+
+.client-slide {
+    flex: 0 0 150px;
+}
+
+#clients-slide-track {
+    display: flex;
+    gap: 3em;
+    transition: transform 0.6s ease-in-out;
+    will-change: transform; 
+}
+
+#clients-slider img {
+    width: 150px;
+    height: 150px;
+}
+
+#prev-slide-btn, #next-slide-btn {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin: 0 5px;
+}
+
+#prev-slide-btn:hover, #next-slide-btn:hover {
+    color: white;
+    background-color: #007bff;
+}
+
+#prev-slide-btn i, #next-slide-btn i {
+    font-size: 24px;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 1500px) {  
+    #carrusel {
+        padding-left: 80px; 
+        padding-right: 40px;   
+    }    
+} 
+
+@media (max-width: 1000px) {  
+    #carrusel {
+        padding-left: 20px; 
+        padding-right: 10px;   
+    }    
+} 
+
+@media (max-width: 700px) {
+    #carrusel {
+        padding-left: 0; 
+        padding-right: 0;  
+    } 
+    
+    #prev-slide-btn,  #next-slide-btn {
+        width: 26px;
+        margin-right: 20px;
+    } 
+    
+    #prev-slide-btn i, #next-slide-btn i {
+        font-size: 15px;
+        padding: 5px;
+    }    
+
+    #clients-slider::before,
+    #clients-slider::after {
+        width: 1px; 
+    }
+    #clients-slider::after {
+        width: 100px;
+    }
+}
+
+@media (max-width: 540px) {  
+    #carrusel {
+        padding-left: 5px; 
+        padding-right: 5px;  
+    } 
+
+    #clients-slider::after {
+        width: 20px;
+    }     
+}    
+
+@media (max-width: 520px) {  
+    #clients-slider::after {
+        width: 80px; 
+    }    
+}

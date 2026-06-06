@@ -1,0 +1,90 @@
+#text-container {
+    display: inline; 
+    max-width: 90vw;
+    width: 100%;
+    position: relative;
+    margin-left: 5%;
+    z-index: 2;
+    margin-bottom: 0px;
+    
+    border-radius: 10px;
+    white-space: normal; 
+}
+
+#typing {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 70px;
+    overflow: hidden;
+    white-space: normal; 
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+    left: 0;
+    transform: translateX(0);
+    margin-left: 0;
+    word-wrap: break-word; 
+    display: inline; 
+    background-color: white;
+    border-radius: 10px;
+    box-decoration-break: clone; 
+    -webkit-box-decoration-break: clone; 
+    padding-right: 5px;
+}
+
+#fixed {
+    color: #2E5790;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bolder;
+    font-size: 70px;
+    margin-bottom: 0;
+    z-index: 2;
+    margin-left: 5%;
+    margin-top: 2%;
+    position: relative; 
+}
+
+#dynamic-text {
+    opacity: 1;
+    margin-left: 0px;
+}
+
+#crow {
+    margin-left: 0px;
+    display: inline; 
+    vertical-align: bottom; 
+    opacity: 0;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media (min-width: 1301px) {
+    #fixed {
+        font-size: 70px;
+    }
+    #typing {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 1300px) and (min-height: 701px) {
+    #fixed {
+        font-size: 45px;
+    }
+    #typing {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 1300px) and (max-height: 700px) {
+    #fixed {
+        font-size: 35px;
+    }
+    #typing{
+        font-size: 35px;
+    }
+}
+

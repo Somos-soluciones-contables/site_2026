@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    line-height: inherit;
+}
+
+.mb-8 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.py-20 {
+    padding-top: 1rem !important;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 100 !important;
+    font-style: normal !important;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 100 !important;
+    font-style: normal !important;
+}
+
+.card {
+    position: relative;
+    border-radius: 50px;
+}
+
+.card::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    transition: 0.6s;
+    z-index: 0;
+    background-color: #2f6099;
+    border-radius: 50px;
+}
+
+.card:hover {
+    box-shadow: 0.063rem 0.063rem 1.25rem 0.375rem rgba(0, 0, 0, 0.53);
+}
+
+.card:nth-child(1)::before {
+    bottom: 0;
+    right: 0;
+    clip-path: circle(calc(6.25rem + 7.5vw) at 100% 100%);
+}
+
+.card:nth-child(2)::before {
+    bottom: 0;
+    left: 0;
+    clip-path: circle(calc(6.25rem + 7.5vw) at 0% 100%);
+}
+
+.card:nth-child(3)::before {
+    top: 0;
+    right: 0;
+    clip-path: circle(calc(6.25rem + 7.5vw) at 100% 0%);
+}
+
+.card:nth-child(4)::before {
+    top: 0;
+    left: 0;
+    clip-path: circle(calc(6.25rem + 7.5vw) at 0% 0%);
+}
+
+.card p {
+    transition: 0.8s;
+}
+
+.card:hover::before {
+    clip-path: circle(110vw at 100% 100%);
+}
+
+.card:hover p {
+    color: #fff;
+}
+
+.card:nth-child(1) .circle {
+    background: url("../../public/features-section/feature-1.webp") no-repeat 50% 50%/cover;
+    bottom: 0;
+    right: 0;
+    clip-path: circle(calc(7rem + 8vw) at 100% 100%);
+}
+
+.card:nth-child(2) .circle {
+    background: url("../../public/features-section/feature-2.webp") no-repeat 50% 50%/cover;
+    bottom: 0;
+    left: 0;
+    /* clip-path: circle(calc(6.25rem + 7.5vw) at 0% 100%); */
+    clip-path: circle(calc(7rem + 8vw) at 0% 100%);
+}
+
+.card:nth-child(3) .circle {
+    background: url("../../public/features-section/feature-3.webp") no-repeat 50% 50%/cover;
+    top: 0;
+    right: 0;
+    clip-path: circle(calc(7rem + 8vw) at 100% 0%);
+}
+
+.card:nth-child(4) .circle {
+    background: url("../../public/features-section/feature-4.webp") no-repeat 50% 50%/cover;
+    top: 0;
+    left: 0;
+    clip-path: circle(calc(7rem + 8vw) at 0% 0%);
+}
+
+@media screen and (min-width: 62.5rem) {
+    .circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .card:nth-child(1) .circle {
+        clip-path: circle(calc(8rem + 10vw) at 100% 100%);
+    }
+
+    .card:nth-child(2) .circle {
+        clip-path: circle(calc(8rem + 10vw) at 0% 100%);
+    }
+
+    .card:nth-child(3) .circle {
+        clip-path: circle(calc(8rem + 10vw) at 100% 0%);
+    }
+
+    .card:nth-child(4) .circle {
+        clip-path: circle(calc(8rem + 10vw) at 0% 0%);
+    }
+} 
+
+@media screen and (max-width: 1080px) {
+    .card:nth-child(1) .circle {
+        background: none;
+    }
+    .card:nth-child(2) .circle {
+        background: none;
+    }
+
+    .card:nth-child(3) .circle {
+        background: none;
+    }
+
+    .card:nth-child(4) .circle {
+        background: none;
+    }
+} 
+
+@media screen and (max-width: 700px) {
+    .mb-8 {
+        margin-top: 0;
+        margin-bottom: 5px !important;
+    }
+
+    .py-20 {
+        padding-top: 0 !important;
+        padding-bottom: 5px !important;
+    }
+
+    .gap-5 {
+        gap: 0.25rem !important;
+    }
+
+    .min-h-screen {
+        min-height: 90vh;
+    }
+}  

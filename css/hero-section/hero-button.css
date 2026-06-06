@@ -1,0 +1,106 @@
+button {
+    position: absolute;
+    bottom: 40%;
+    right: 19%;
+    cursor: pointer;
+    font-weight: 400;
+    transition: opacity 1s ease-in-out, visibility 0s linear 1s;
+    padding: 20px 50px;
+    border-radius: 200px;
+    background: #388FC8;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); 
+}
+
+button svg {
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3)); 
+}
+
+button.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in-out;
+}
+
+button:hover {
+    background: #ffffff;
+    color: #388FC8;
+}
+
+button > svg {
+    width: 50px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
+}
+
+button:hover svg {
+    transform: translateX(5px);
+    fill: #388FC8; 
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 1600px) {			
+    button {
+        bottom: 15%;
+        font-size: 30px
+    }
+}	
+
+@media (max-width: 1287px) {				
+    button {
+        bottom: 10%;
+        right: 2%;
+    }
+}	
+
+@media (max-width: 1000px) {			
+    button {
+        bottom: 15%;
+        right: 5%;
+        padding: 10px 20px;
+        border-radius: 200px;
+        font-size: 25px
+    }
+}	
+
+@media (max-width: 800px) {			
+    button {
+        bottom: 8%;
+    }
+}	
+
+@media (max-width: 600px) {			
+    button {
+        bottom: 5%;
+    }
+}	
+
+@media (max-width: 500px) {			
+    button {
+        bottom: 3%;
+    }
+}	
+
+@media (max-width: 400px) {			
+    button {
+        bottom: 2.5%;
+        right: 10%;
+        padding: 5px 10px;
+        border-radius: 200px;
+        font-size: 15px
+    }
+}	

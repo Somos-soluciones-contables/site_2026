@@ -1,0 +1,98 @@
+/* Estilos de las secciones */
+section {
+    color: #2e5790;
+    margin: 0; 
+    opacity: 0; 
+    animation: section-fadeIn 1.5s forwards ease-in-out;
+}
+
+.our-team, .our-services, .clients {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.our-team {
+    background-color: #33639B;
+    background-image: url(../public/components/wave1.svg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.our-services {
+    background-image: url(../public/components/wave1.svg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 10px;
+}
+
+.clients {
+    color: #33639B;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.contact {
+    padding: 50px 20px 20px 25px;
+    background-color: #33639B;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url(../public/components/wave2.svg);
+    color: white;
+}
+
+.our-team h1 {
+    margin-bottom: 5%;
+    text-align: right;
+    margin-right: 10%;
+    margin-left: 10%;
+    color: #ffffff;
+}
+
+.our-services h1 {
+    color: #2E5790;
+}
+
+.clients h1 {
+    padding-top: 40px;
+    font-size: 60px;
+    margin-bottom: 60px;
+    margin-left: 5%;
+    margin-right: 10%;
+    text-align: right;
+    font-weight: 300;
+    color: #2E5790;
+}
+
+.contact  h2{
+    color: white;
+    margin-bottom: 50px;
+}
+
+.our-services h3 {
+    font-weight: 400;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+@media (max-width: 520px) {
+    .clients h1 {
+        font-size: 40px;
+    }
+}
+
+@keyframes section-fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

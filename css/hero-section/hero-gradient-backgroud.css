@@ -1,0 +1,79 @@
+canvas {
+    --gradient-color-1: #2E5790;
+    --gradient-color-2: #FAB0E3 ;
+    --gradient-color-3: #417abb;
+    --gradient-color-4: #244677 ;
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+    border-radius: 30% 0 0 30%; 
+    z-index: 0;
+}
+
+.gradient-container {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+#gradient-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+}
+
+.overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    width: 1850px;
+    height: 1850px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.7;
+    animation: fadeScaleRotate 2s infinite ease-in-out, rotate 120s infinite linear;
+}
+
+@keyframes fadeScaleRotate {
+    0% { opacity: 0.7; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05) rotate(180deg); }
+    100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1) rotate(360deg); }
+}
+
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (max-width: 1287px) {			
+    .overlay-image {
+        width: 1550px;
+        height: 1550px;
+    } 
+}	
+
+@media (max-width: 1000px) {			
+    canvas {
+        position: fixed !important;
+        top: 0 !important;
+        left: 50% !important;
+    }	
+}	
+
+@media (max-width: 400px) {			
+    canvas {
+        top: 0;
+        left: 65% !important;
+        width: 27%;
+        height: 25%;
+        border-radius:60px;
+        z-index: 0; 
+    }	
+}	
