@@ -11,12 +11,36 @@ document.addEventListener("DOMContentLoaded", () => {
         && typeof navigator.brave === "object"
         && typeof navigator.brave?.isBrave === "function";
     let isVideoNearViewport = false;
+    let hasHydratedVideo = false;
 
-    servicesVideo.preload = "metadata";
+    servicesVideo.preload = "none";
     servicesVideo.playsInline = true;
-    servicesVideo.setAttribute("preload", "metadata");
+    servicesVideo.setAttribute("preload", "none");
 
-    if (!prefersReducedMotion.matches && !lowPowerVideoMode.matches && !isBraveBrowser) {
+    function hydrateVideo() {
+        if (hasHydratedVideo) {
+            return;
+        }
+
+        hasHydratedVideo = true;
+
+        if (servicesVideo.dataset.poster) {
+            servicesVideo.poster = servicesVideo.dataset.poster;
+            servicesVideo.removeAttribute("data-poster");
+        }
+
+        const pendingSource = servicesVideo.dataset.videoSrc;
+
+        if (pendingSource) {
+            const source = document.createElement("source");
+            source.src = pendingSource;
+            source.type = "video/mp4";
+            servicesVideo.appendChild(source);
+            servicesVideo.removeAttribute("data-video-src");
+        }
+
+        servicesVideo.preload = lowPowerVideoMode.matches || isBraveBrowser ? "metadata" : "auto";
+        servicesVideo.setAttribute("preload", servicesVideo.preload);
         servicesVideo.load();
     }
 
@@ -25,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
             servicesVideo.pause();
             return;
         }
+
+        hydrateVideo();
 
         try {
             await servicesVideo.play();
@@ -55,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         },
         {
-            rootMargin: "320px 0px",
+            rootMargin: lowPowerVideoMode.matches ? "80px 0px" : "260px 0px",
             threshold: 0.18
         }
     );

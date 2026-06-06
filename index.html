@@ -3,40 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estudio contable Somos Soluciones Contables. Auditoría, consultoría y asesoramiento para empresas en Córdoba.">
+    <meta name="description" content="Estudio contable en Córdoba Capital. Auditoría, consultoría y asesoramiento para empresas, profesionales y comercios en General Paz, Cofico y alrededores.">
     <meta name="robots" content="index, follow">
+    <meta name="author" content="Somos Soluciones Contables">
+    <meta name="geo.region" content="AR-X">
+    <meta name="geo.placename" content="Córdoba Capital, Córdoba, Argentina">
     <meta name="theme-color" content="#204d85">
     <link rel="canonical" href="https://somos-sc.com.ar/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:title" content="Somos Soluciones Contables">
-    <meta property="og:description" content="Auditoría, consultoría y asesoramiento contable para empresas e individuos en Córdoba.">
+    <meta property="og:title" content="Estudio contable en Córdoba | Somos Soluciones Contables">
+    <meta property="og:description" content="Asesoramiento contable, impositivo, laboral, societario y financiero para empresas, profesionales y comercios en Córdoba Capital.">
     <meta property="og:url" content="https://somos-sc.com.ar/">
     <meta property="og:image" content="https://somos-sc.com.ar/public/hero-section/slide-1.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Somos Soluciones Contables">
-    <meta name="twitter:description" content="Auditoría, consultoría y asesoramiento contable para empresas e individuos en Córdoba.">
+    <meta name="twitter:title" content="Estudio contable en Córdoba | Somos Soluciones Contables">
+    <meta name="twitter:description" content="Asesoramiento contable, impositivo, laboral, societario y financiero para empresas, profesionales y comercios en Córdoba Capital.">
     <meta name="twitter:image" content="https://somos-sc.com.ar/public/hero-section/slide-1.webp">
-    <title>Somos Soluciones Contables</title>
+    <title>Estudio contable en Córdoba Capital | Somos Soluciones Contables</title>
     <link rel="icon" href="./public/favicon.webp" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="public/hero-section/slide-1.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Open+Sans:wght@300;400;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" data-deferred-stylesheet data-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <link rel="stylesheet" href="css/site/foundation.css">
     <link rel="stylesheet" href="css/site/sections.css">
     <link rel="stylesheet" href="css/site/responsive.css">
-    <link rel="stylesheet" href="css/site/animations.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PZ947DY1F"></script>
+    <link rel="stylesheet" href="css/site/animations.css" media="print" onload="this.media='all'">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-1PZ947DY1F');
+        (function () {
+            var analyticsLoaded = false;
+            var analyticsId = 'G-1PZ947DY1F';
+
+            function loadAnalytics() {
+                if (analyticsLoaded) {
+                    return;
+                }
+
+                analyticsLoaded = true;
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=' + analyticsId;
+                document.head.appendChild(script);
+            }
+
+            ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (eventName) {
+                window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
+            });
+
+            window.addEventListener('load', function () {
+                var delay = window.matchMedia('(max-width: 760px)').matches ? 7000 : 3200;
+                window.setTimeout(function () {
+                    if ('requestIdleCallback' in window) {
+                        window.requestIdleCallback(loadAnalytics, { timeout: 1800 });
+                    } else {
+                        loadAnalytics();
+                    }
+                }, delay);
+            }, { once: true });
+        })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" defer></script>
+    <script src="js/deferred-assets.js" defer></script>
     <script src="js/hero-section/title-text-behavior.js" defer></script>
     <script src="js/hero-section/carousel-behavior.js" defer></script>
     <script src="js/services-video.js" defer></script>
@@ -52,21 +86,104 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "AccountingService",
+            "@type": ["AccountingService", "LocalBusiness"],
+            "@id": "https://somos-sc.com.ar/#estudio-contable",
             "name": "Somos Soluciones Contables",
+            "alternateName": "SOMOS Soluciones Contables",
+            "description": "Estudio contable en Córdoba Capital especializado en auditoría, consultoría y asesoramiento contable, impositivo, laboral, societario y financiero para empresas, profesionales y comercios.",
             "url": "https://somos-sc.com.ar/",
+            "mainEntityOfPage": "https://somos-sc.com.ar/",
             "image": "https://somos-sc.com.ar/public/hero-section/slide-1.webp",
+            "logo": "https://somos-sc.com.ar/public/components/esfera.png",
             "email": "estudio@somos-sc.com.ar",
             "telephone": "+54 351 3990206",
+            "hasMap": "https://maps.app.goo.gl/HiZke5s4AtENhopQ6",
+            "slogan": "Orden, claridad y control.",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Esquiú 62, Sonoma Office, Oficina 213",
+                "streetAddress": "Esquiú 62, Sonoma Office, Oficina 213, Barrio General Paz",
                 "addressLocality": "Córdoba",
                 "addressRegion": "Córdoba",
                 "addressCountry": "AR"
             },
-            "areaServed": "Córdoba, Argentina",
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Córdoba Capital"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Barrio General Paz, Córdoba"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Cofico, Córdoba"
+                },
+                {
+                    "@type": "AdministrativeArea",
+                    "name": "Córdoba, Argentina"
+                }
+            ],
+            "knowsAbout": [
+                "estudio contable",
+                "asesoramiento contable",
+                "auditoría",
+                "consultoría contable",
+                "impuestos",
+                "contabilidad laboral",
+                "servicios societarios",
+                "asesoramiento financiero"
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servicios contables",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Auditoría y consultoría contable"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Asesoramiento impositivo"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Asesoramiento laboral"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Asesoramiento societario"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Asesoramiento financiero"
+                        }
+                    }
+                ]
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+54 351 3990206",
+                "contactType": "customer service",
+                "areaServed": "AR",
+                "availableLanguage": "es"
+            },
             "sameAs": [
+                "https://maps.app.goo.gl/HiZke5s4AtENhopQ6",
                 "https://www.facebook.com/somossolucionescontablesok",
                 "https://www.instagram.com/somossoluciones.ok/"
             ]
@@ -76,7 +193,7 @@
 <body id="top">
     <header class="navbar">
         <a href="#top" class="brand" aria-label="Ir al inicio">
-            <img src="public/components/esfera.png" alt="Logo de Somos Soluciones Contables" class="brand-logo">
+            <img src="public/components/esfera.png" alt="Logo de Somos Soluciones Contables" class="brand-logo" width="256" height="262">
             <span class="brand-copy">
                 <strong>SOMOS</strong>
                 <span>Soluciones Contables</span>
@@ -125,11 +242,11 @@
                     <div class="hero-stage-sheen" aria-hidden="true"></div>
                     <div class="swiper-container hero-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="public/hero-section/slide-1.webp" alt="Equipo del estudio en una reunión de trabajo" fetchpriority="high" decoding="async"></div>
-                            <div class="swiper-slide"><img data-src="public/hero-section/slide-2.webp" alt="Revisión de información y documentación contable" loading="lazy" decoding="async"></div>
-                            <div class="swiper-slide"><img data-src="public/hero-section/slide-3.webp" alt="Análisis de gestión y seguimiento profesional" loading="lazy" decoding="async"></div>
-                            <div class="swiper-slide"><img data-src="public/hero-section/slide-4.webp" alt="Trabajo del equipo con foco en control y auditoría" loading="lazy" decoding="async"></div>
-                            <div class="swiper-slide"><img data-src="public/hero-section/slide-5.webp" alt="Asesoramiento cercano para empresas y equipos de gestión" loading="lazy" decoding="async"></div>
+                            <div class="swiper-slide"><img src="public/hero-section/slide-1.webp" alt="Equipo del estudio en una reunión de trabajo" width="1504" height="973" fetchpriority="high" decoding="async"></div>
+                            <div class="swiper-slide"><img data-src="public/hero-section/slide-2.webp" alt="Revisión de información y documentación contable" width="1504" height="973" loading="lazy" decoding="async"></div>
+                            <div class="swiper-slide"><img data-src="public/hero-section/slide-3.webp" alt="Análisis de gestión y seguimiento profesional" width="1504" height="973" loading="lazy" decoding="async"></div>
+                            <div class="swiper-slide"><img data-src="public/hero-section/slide-4.webp" alt="Trabajo del equipo con foco en control y auditoría" width="1504" height="973" loading="lazy" decoding="async"></div>
+                            <div class="swiper-slide"><img data-src="public/hero-section/slide-5.webp" alt="Asesoramiento cercano para empresas y equipos de gestión" width="1504" height="973" loading="lazy" decoding="async"></div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -160,7 +277,7 @@
             <div class="team-grid">
                 <article class="team-card">
                     <div class="team-photo">
-                        <img src="public/our-team-section/member1.webp" alt="Gabriela Surban" loading="lazy" decoding="async">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-lazy-src="public/our-team-section/member1.avif" alt="Gabriela Surban" width="1024" height="854" loading="lazy" decoding="async">
                     </div>
                     <div class="team-card-body">
                         <h3>Gabriela Surban</h3>
@@ -178,7 +295,7 @@
                 </article>
                 <article class="team-card">
                     <div class="team-photo">
-                        <img src="public/our-team-section/member2.webp" alt="Nicolás Acuña" loading="lazy" decoding="async">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-lazy-src="public/our-team-section/member2.avif" alt="Nicolás Acuña" width="1024" height="854" loading="lazy" decoding="async">
                     </div>
                     <div class="team-card-body">
                         <h3>Nicolás Acuña</h3>
@@ -195,7 +312,7 @@
                 </article>
                 <article class="team-card">
                     <div class="team-photo">
-                        <img src="public/our-team-section/member3.webp" alt="Cristina Vetter" loading="lazy" decoding="async">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-lazy-src="public/our-team-section/member3.avif" alt="Cristina Vetter" width="1024" height="854" loading="lazy" decoding="async">
                     </div>
                     <div class="team-card-body">
                         <h3>Cristina Vetter</h3>
@@ -213,7 +330,7 @@
                 </article>
                 <article class="team-card">
                     <div class="team-photo">
-                        <img src="public/our-team-section/member4.webp" alt="Leandro Sánchez" loading="lazy" decoding="async">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-lazy-src="public/our-team-section/member4.avif" alt="Leandro Sánchez" width="1024" height="854" loading="lazy" decoding="async">
                     </div>
                     <div class="team-card-body">
                         <h3>Leandro Sánchez</h3>
@@ -237,9 +354,7 @@
             </div>
             <div class="services-layout">
                 <article class="service-story service-story-image">
-                    <video class="services-video" muted loop playsinline preload="metadata" poster="public/services-section/services.webp" aria-label="Presentación del equipo y las oficinas del estudio">
-                        <source src="public/services-section/presentation.mp4" type="video/mp4">
-                    </video>
+                    <video class="services-video" muted loop playsinline preload="none" width="1096" height="663" data-poster="public/services-section/services.webp" data-video-src="public/services-section/presentation.mp4" aria-label="Presentación del equipo y las oficinas del estudio"></video>
                 </article>
                 <article class="service-story service-story-copy">
                     <p class="service-tag">
@@ -368,7 +483,7 @@
                                         </div>
                                         <span class="google-review-mark" aria-hidden="true"><i class="fa-brands fa-google"></i></span>
                                     </div>
-                                    <p class="google-review-stars" aria-label="Sin calificación disponible">&nbsp;</p>
+                                    <span class="google-review-stars" role="img" aria-label="Sin calificación disponible">&nbsp;</span>
                                     <p class="google-review-text">&nbsp;</p>
                                     <span class="google-review-accent" aria-hidden="true"></span>
                                 </article>
@@ -383,7 +498,7 @@
                                         </div>
                                         <span class="google-review-mark" aria-hidden="true"><i class="fa-brands fa-google"></i></span>
                                     </div>
-                                    <p class="google-review-stars" aria-label="Sin calificación disponible">&nbsp;</p>
+                                    <span class="google-review-stars" role="img" aria-label="Sin calificación disponible">&nbsp;</span>
                                     <p class="google-review-text">&nbsp;</p>
                                     <span class="google-review-accent" aria-hidden="true"></span>
                                 </article>
@@ -398,7 +513,7 @@
                                         </div>
                                         <span class="google-review-mark" aria-hidden="true"><i class="fa-brands fa-google"></i></span>
                                     </div>
-                                    <p class="google-review-stars" aria-label="Sin calificación disponible">&nbsp;</p>
+                                    <span class="google-review-stars" role="img" aria-label="Sin calificación disponible">&nbsp;</span>
                                     <p class="google-review-text">&nbsp;</p>
                                     <span class="google-review-accent" aria-hidden="true"></span>
                                 </article>
@@ -459,11 +574,11 @@
                         </div>
                         <div class="contact-item">
                             <span class="contact-label"><i class="fa-solid fa-location-dot"></i> Dirección</span>
-                            <a href="https://maps.app.goo.gl/mstbw2HZwWEY1XUP6" class="contact-button" target="_blank" rel="noopener noreferrer">Esquiú 62 (Sonoma Office), Oficina 213, B° General Paz, Córdoba.</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Somos%20Soluciones%20Contables&amp;query_place_id=ChIJ5QMlb9GjMpQRvQ17NWIBuEE" class="contact-button" target="_blank" rel="noopener noreferrer">Esquiú 62 (Sonoma Office), Oficina 213, B° General Paz, Córdoba.</a>
                         </div>
                     </div>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.911882862973!2d-64.17259832361881!3d-31.416553774261743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2a242823489%3A0x90e3d3813f211ffc!2sFray%20Mamerto%20Esqui%C3%BA%2062%2C%20X5000%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1738461783745!5m2!1ses!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación en Google Maps"></iframe>
+                        <iframe src="https://maps.google.com/maps?hl=es-AR&amp;q=Somos%20Soluciones%20Contables%2C%20Esqui%C3%BA%2062%2C%20C%C3%B3rdoba%2C%20Argentina&amp;z=17&amp;iwloc=B&amp;output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Somos Soluciones Contables en Google Maps"></iframe>
                     </div>
                     <div class="social-icons-wrapper">
                         <a href="https://wa.me/5493513990206" class="social-icon whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>

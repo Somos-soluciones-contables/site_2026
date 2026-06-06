@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let isTransitioning = false;
     let isSliderVisible = false;
     let slideWidth = 0;
+    let hasActivatedSliderMeasurements = false;
+    let resizeObserver = null;
 
     function updateSlideWidth() {
         const firstSlide = sliderTrack.querySelector(".client-slide");
@@ -51,6 +53,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         autoSlideInterval = window.setInterval(() => moveToNextSlide(), 2800);
+    }
+
+    function activateSliderMeasurements() {
+        if (hasActivatedSliderMeasurements) {
+            updateSlideWidth();
+            resetTrackPosition();
+            return;
+        }
+
+        hasActivatedSliderMeasurements = true;
+        updateSlideWidth();
+        resetTrackPosition();
+
+        if ("ResizeObserver" in window) {
+            resizeObserver = new ResizeObserver(() => {
+                updateSlideWidth();
+                resetTrackPosition();
+            });
+
+            resizeObserver.observe(sliderTrack);
+        } else {
+            window.addEventListener("resize", () => {
+                updateSlideWidth();
+                resetTrackPosition();
+            });
+        }
     }
 
     function moveToPrevSlide() {
@@ -138,20 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoSlide();
     });
 
-    if ("ResizeObserver" in window) {
-        const resizeObserver = new ResizeObserver(() => {
-            updateSlideWidth();
-            resetTrackPosition();
-        });
-
-        resizeObserver.observe(sliderTrack);
-    } else {
-        window.addEventListener("resize", () => {
-            updateSlideWidth();
-            resetTrackPosition();
-        });
-    }
-
     if ("IntersectionObserver" in window) {
         const visibilityObserver = new IntersectionObserver(
             (entries) => {
@@ -159,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     isSliderVisible = entry.isIntersecting;
 
                     if (isSliderVisible) {
-                        updateSlideWidth();
+                        activateSliderMeasurements();
                         startAutoSlide();
                     } else {
                         stopAutoSlide();
@@ -175,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         visibilityObserver.observe(sliderSection);
     } else {
         isSliderVisible = true;
+        activateSliderMeasurements();
         startAutoSlide();
     }
 
@@ -184,5 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         prefersReducedMotion.addListener(startAutoSlide);
     }
 
-    updateSlideWidth();
+    window.addEventListener("pagehide", () => {
+        resizeObserver?.disconnect();
+    });
 });

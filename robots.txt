@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://somos-sc.com.ar/sitemap.xml

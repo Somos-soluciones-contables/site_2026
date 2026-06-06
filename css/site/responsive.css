@@ -1198,6 +1198,188 @@
     }
 }
 
+@media (max-width: 1080px) {
+    .hero-inner {
+        gap: 20px;
+    }
+
+    .hero-copy::before {
+        background:
+            linear-gradient(180deg, rgba(10, 26, 50, 0.72) 0%, rgba(12, 34, 64, 0.48) 70%, rgba(12, 34, 64, 0.06) 100%),
+            radial-gradient(circle at 12% 10%, rgba(250, 176, 227, 0.12), transparent 38%);
+    }
+
+    .google-reviews-widget {
+        border-radius: 34px;
+    }
+
+    .google-review-card {
+        min-height: 360px;
+    }
+}
+
+@media (min-width: 820px) and (max-width: 1180px) {
+    .team-grid {
+        row-gap: 22px;
+        column-gap: 32px;
+    }
+
+    .google-reviews-widget {
+        max-width: 920px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .team-grid {
+        gap: 16px;
+    }
+
+    .team-card {
+        box-shadow: 0 16px 34px rgba(19, 36, 61, 0.11);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-section {
+        padding: 16px 0 14px;
+    }
+
+    .team-grid {
+        gap: 12px;
+    }
+
+    .google-reviews-widget {
+        border-radius: 30px;
+    }
+
+    .google-review-card {
+        min-height: 320px;
+        border-radius: 28px;
+    }
+
+    .google-review-text {
+        font-size: clamp(1.08rem, 4.7vw, 1.28rem);
+        line-height: 1.4;
+    }
+
+    .advisory-card {
+        min-height: 254px;
+        padding: 21px 17px 21px 18px;
+    }
+
+    .advisory-card:nth-child(1),
+    .advisory-card:nth-child(2),
+    .advisory-card:nth-child(3),
+    .advisory-card:nth-child(4) {
+        min-height: 254px;
+    }
+
+    .advisory-copy h3 {
+        font-size: 1.22rem;
+    }
+
+    .advisory-copy p {
+        line-height: 1.46;
+    }
+
+    .hero-copy {
+        padding: 20px 0 4px;
+    }
+
+    .hero-title-lockup {
+        min-height: 138px;
+        margin-bottom: 8px;
+    }
+
+    #text-container {
+        min-height: 96px;
+        margin-top: 8px;
+    }
+
+    #typing {
+        min-height: 96px;
+        padding-bottom: 14px;
+    }
+
+    .hero-actions {
+        gap: 11px;
+        margin-top: 16px;
+    }
+
+    .hero-section .primary-button,
+    .hero-section .secondary-button {
+        min-height: 55px;
+        padding: 14px 13px;
+        font-size: 0.96rem;
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.18),
+            0 14px 28px rgba(3, 12, 26, 0.15);
+    }
+
+    .hero-highlights {
+        gap: 11px;
+    }
+
+    .hero-highlights article {
+        border-radius: 19px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-lockup {
+        min-height: 150px;
+        margin-bottom: 8px;
+    }
+
+    #text-container {
+        min-height: 100px;
+        margin-top: 10px;
+    }
+
+    #typing {
+        min-height: 100px;
+        padding-bottom: 14px;
+    }
+
+    .advisory-card {
+        min-height: 274px;
+    }
+
+    .advisory-copy h3 {
+        font-size: 1.16rem;
+    }
+
+    .advisory-copy p {
+        font-size: 0.94rem;
+        line-height: 1.47;
+    }
+}
+
+@media (hover: none), (pointer: coarse), (max-width: 760px) {
+    #dynamic-text {
+        transition:
+            opacity 0.24s ease,
+            transform 0.34s cubic-bezier(.22,.61,.36,1);
+        will-change: opacity, transform;
+    }
+
+    #dynamic-text.is-erasing {
+        filter: none;
+    }
+
+    .team-card,
+    .pillar-card,
+    .advisory-card,
+    .advisory-media,
+    .client-slide,
+    .google-reviews-nav,
+    .google-reviews-cta {
+        transition-property: transform, opacity, border-color, background-color, color, filter;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .hero-gradient-wave,
     .hero-gradient-ribbon,

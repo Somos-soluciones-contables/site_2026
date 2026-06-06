@@ -12,12 +12,17 @@ if (backToTop) {
         }
 
         backToTopButton?.classList.remove("is-resetting");
+        document.documentElement.classList.remove("is-resetting-back-to-top");
     }
 
     function scheduleResetStateRelease(delay = 380) {
         clearResetState();
+        document.documentElement.classList.add("is-resetting-back-to-top");
+        backToTopButton?.classList.add("is-resetting");
+
         resetTimer = window.setTimeout(() => {
             backToTopButton?.classList.remove("is-resetting");
+            document.documentElement.classList.remove("is-resetting-back-to-top");
             resetTimer = null;
         }, delay);
     }
@@ -40,6 +45,9 @@ if (backToTop) {
         e.preventDefault();
         backToTopButton?.classList.add("is-resetting");
         backToTopButton?.blur();
+        if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
         window.scrollTo({ top: 0, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' });
 
         scheduleResetStateRelease(prefersReducedMotion.matches ? 80 : 620);

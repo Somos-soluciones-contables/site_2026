@@ -43,11 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function warmAdjacentSlides(index) {
         ensureSlideImage(index);
+
+        if (lowPowerCarouselMode.matches || isBraveBrowser) {
+            return;
+        }
+
         ensureSlideImage((index + 1) % slides.length);
 
-        if (!lowPowerCarouselMode.matches && !isBraveBrowser) {
-            ensureSlideImage((index - 1 + slides.length) % slides.length);
-        }
+        ensureSlideImage((index - 1 + slides.length) % slides.length);
     }
 
     function buildPagination() {
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         autoplayTimer = window.setTimeout(() => {
+            ensureSlideImage((activeIndex + 1) % slides.length);
             goToSlide((activeIndex + 1) % slides.length, false);
         }, autoplayDelay);
     }

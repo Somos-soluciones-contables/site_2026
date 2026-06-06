@@ -65,7 +65,7 @@ function setupGoogleReviewsWidget(root) {
             const dot = document.createElement("button");
             dot.type = "button";
             dot.className = "google-reviews-dot";
-            dot.setAttribute("aria-label", `Ir a la resena ${index + 1}`);
+            dot.setAttribute("aria-label", `Ir a la reseña ${index + 1}`);
             dot.addEventListener("click", () => {
                 currentIndex = index;
                 syncSlider();
@@ -227,9 +227,9 @@ function setupGoogleReviewsWidget(root) {
                     </div>
                     <span class="google-review-mark" aria-hidden="true"><i class="fa-brands fa-google"></i></span>
                 </div>
-                <p class="google-review-stars" aria-label="${starsLabel}">${new Array(rating).fill("&#9733;").join("")}</p>
+                <span class="google-review-stars" role="img" aria-label="${starsLabel}">${new Array(rating).fill("&#9733;").join("")}</span>
                 <p class="google-review-text">${text}</p>
-                <button type="button" class="google-review-more" data-google-review-more hidden>Leer mas</button>
+                <button type="button" class="google-review-more" data-google-review-more hidden>Leer más</button>
                 <span class="google-review-accent" aria-hidden="true"></span>
             </article>
         `;
@@ -442,11 +442,11 @@ function ensureGoogleReviewModal() {
     modal.innerHTML = `
         <div class="google-review-modal-backdrop" data-google-review-close></div>
         <div class="google-review-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="googleReviewModalTitle">
-            <button type="button" class="google-review-modal-close" data-google-review-close aria-label="Cerrar resena">
+            <button type="button" class="google-review-modal-close" data-google-review-close aria-label="Cerrar reseña">
                 <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
             <div class="google-review-modal-head">
-                <p class="google-review-modal-stars" data-google-review-modal-stars aria-label="Calificacion de la resena"></p>
+                <p class="google-review-modal-stars" data-google-review-modal-stars aria-label="Calificación de la reseña"></p>
                 <h4 id="googleReviewModalTitle" data-google-review-modal-author></h4>
                 <p class="google-review-modal-date" data-google-review-modal-date></p>
             </div>
