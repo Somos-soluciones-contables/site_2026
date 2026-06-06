@@ -1,6 +1,39 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-google-reviews-widget]").forEach(setupGoogleReviewsWidget);
+    bootGoogleReviewsWidgets();
 });
+
+function bootGoogleReviewsWidgets() {
+    const widgets = Array.from(document.querySelectorAll("[data-google-reviews-widget]"));
+    const lowPowerMode = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 760px)");
+
+    if (!widgets.length) {
+        return;
+    }
+
+    if (!lowPowerMode.matches || !("IntersectionObserver" in window)) {
+        widgets.forEach(setupGoogleReviewsWidget);
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                setupGoogleReviewsWidget(entry.target);
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            rootMargin: "280px 0px",
+            threshold: 0.01
+        }
+    );
+
+    widgets.forEach((widget) => observer.observe(widget));
+}
 
 function setupGoogleReviewsWidget(root) {
     const track = root.querySelector("[data-google-reviews-track]");

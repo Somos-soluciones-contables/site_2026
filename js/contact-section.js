@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailServiceId = "service_uj55qo7";
     const emailTemplateId = "template_rxmsflz";
     const emailPublicKey = "v5P3ENeGft_4Hd6si";
+    const emailLibraryUrl = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js";
 
     if (!form || !status) {
         return;
@@ -13,11 +14,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const honeypotField = form.querySelector('[name="empresa"]');
     const submitButton = form.querySelector(".submit-button");
     let isSubmitting = false;
+    let emailJsLoadPromise = null;
+    let hasInitializedEmailJs = false;
 
-    if (window.emailjs) {
+    function initializeEmailJs() {
+        if (!window.emailjs || hasInitializedEmailJs) {
+            return;
+        }
+
         window.emailjs.init({
             publicKey: emailPublicKey
         });
+
+        hasInitializedEmailJs = true;
+    }
+
+    function loadEmailJs() {
+        if (window.emailjs) {
+            initializeEmailJs();
+            return Promise.resolve(window.emailjs);
+        }
+
+        if (emailJsLoadPromise) {
+            return emailJsLoadPromise;
+        }
+
+        emailJsLoadPromise = new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = emailLibraryUrl;
+            script.async = true;
+            script.onload = () => {
+                initializeEmailJs();
+                resolve(window.emailjs);
+            };
+            script.onerror = () => {
+                emailJsLoadPromise = null;
+                reject(new Error("No se pudo cargar EmailJS."));
+            };
+            document.head.appendChild(script);
+        });
+
+        return emailJsLoadPromise;
     }
 
     function setStatus(message, type = "") {
@@ -90,6 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fields.forEach((field) => {
         resetFieldState(field);
 
+        field.addEventListener("focus", () => {
+            loadEmailJs().catch(() => {});
+        }, { once: true });
+
         field.addEventListener("blur", () => {
             field.dataset.touched = "true";
             updateFieldState(field);
@@ -105,6 +146,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    if ("IntersectionObserver" in window) {
+        const contactObserver = new IntersectionObserver(
+            (entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) {
+                    return;
+                }
+
+                loadEmailJs().catch(() => {});
+                contactObserver.disconnect();
+            },
+            {
+                rootMargin: "360px 0px"
+            }
+        );
+
+        contactObserver.observe(form);
+    }
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -137,11 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (!window.emailjs) {
-            setStatus("No pudimos iniciar el env\u00edo en este momento. Intenta nuevamente en unos minutos.", "error");
-            return;
-        }
-
         const resetSubmitFeedback = beginSubmitFeedback();
         const formData = Object.fromEntries(new FormData(form).entries());
 
@@ -149,7 +203,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setStatus("Estamos enviando tu consulta...");
 
         try {
-            await window.emailjs.send(emailServiceId, emailTemplateId, {
+            const emailjs = await loadEmailJs();
+
+            if (!emailjs) {
+                throw new Error("EmailJS no disponible.");
+            }
+
+            await emailjs.send(emailServiceId, emailTemplateId, {
                 nombre: formData.nombre,
                 telefono: formData.telefono,
                 email: formData.email,

@@ -2197,6 +2197,9 @@ textarea:not(:placeholder-shown) + .placeholder {
 
 .footer-logo {
     width: 96px;
+    height: auto;
+    aspect-ratio: 171 / 152;
+    object-fit: contain;
 }
 
 .footer-buttons {
