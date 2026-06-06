@@ -1,29 +1,10 @@
 {
-  "generatedAt": "2026-06-06T21:09:37.420Z",
-  "isPlaceholder": false,
+  "generatedAt": "2026-04-18T03:00:00.000Z",
+  "isPlaceholder": true,
   "businessName": "Somos Soluciones Contables",
   "profileUrl": "https://maps.app.goo.gl/HiZke5s4AtENhopQ6",
-  "rating": 5,
-  "totalReviews": 2,
-  "fiveStarReviews": 2,
-  "reviews": [
-    {
-      "authorName": "Lucas Palacios",
-      "initials": "LP",
-      "rating": 5,
-      "text": "Excelente atención muchas gracias",
-      "dateLabel": "Hace 1 mes",
-      "authorPhotoUrl": "https://lh3.googleusercontent.com/a-/ALV-UjX7MGR3GDTcW6KQVTqecRVNSlwacubB0owK9GNWW6VNlTG42nI=s128-c0x00000000-cc-rp-mo",
-      "reviewUrl": "https://www.google.com/maps/contrib/102834493389600617795/reviews"
-    },
-    {
-      "authorName": "Dani Segovia",
-      "initials": "DS",
-      "rating": 5,
-      "text": "Encontré este estudio contable en google y me dio buena impresión desde el inicio por la claridad de las respuestas. Transmiten confianza y trabajan con rapidez en los trámites. En general, una experiencia muy buena.",
-      "dateLabel": "Hace 1 mes",
-      "authorPhotoUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVa1d2hMtMe2sch0sazEDBIGilI0O5OU7amNFuaKrPpJckzVj4=s128-c0x00000000-cc-rp-mo",
-      "reviewUrl": "https://www.google.com/maps/contrib/104125513873658667734/reviews"
-    }
-  ]
+  "rating": 0,
+  "totalReviews": 0,
+  "fiveStarReviews": 0,
+  "reviews": []
 }

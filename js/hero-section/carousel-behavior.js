@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isBraveBrowser = typeof navigator !== "undefined"
         && typeof navigator.brave === "object"
         && typeof navigator.brave?.isBrave === "function";
-    const autoplayDelay = lowPowerCarouselMode.matches || isBraveBrowser ? 5600 : 3600;
+    const autoplayDelay = 3600;
     let activeIndex = 0;
     let autoplayTimer = null;
 
