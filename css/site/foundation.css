@@ -320,11 +320,11 @@ textarea:focus-visible,
     margin: 0 auto;
     padding-top: 18px;
     display: grid;
-    grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
     grid-template-areas:
         "copy stage"
         "highlights stage";
-    gap: 18px 52px;
+    gap: 22px 42px;
     align-items: center;
     align-content: start;
     min-height: inherit;
@@ -337,15 +337,15 @@ textarea:focus-visible,
     position: relative;
     z-index: 2;
     min-width: 0;
-    padding: 28px 0 0 18px;
+    padding: 22px 0 0 12px;
 }
 
 .hero-copy::before {
     content: "";
     position: absolute;
-    inset: -30px 3% -28px -34px;
+    inset: -24px 6% -24px -28px;
     z-index: -1;
-    border-radius: 42px;
+    border-radius: 38px;
     background:
         linear-gradient(90deg, rgba(9, 28, 54, 0.7) 0%, rgba(14, 42, 76, 0.42) 56%, rgba(14, 42, 76, 0.06) 100%),
         radial-gradient(circle at 0% 14%, rgba(250, 176, 227, 0.12), transparent 42%);
@@ -482,6 +482,16 @@ textarea:focus-visible,
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
     margin-top: 12px;
+}
+
+@media (min-width: 1081px) {
+    .hero-title-lockup {
+        margin-bottom: 8px;
+    }
+
+    .hero-highlights {
+        margin-top: 6px;
+    }
 }
 
 .hero-highlights article {

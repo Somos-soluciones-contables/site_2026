@@ -52,25 +52,8 @@ if (textElement) {
         return heroMeasureNode;
     }
 
-    function resetHeroReserveHeight() {
-        if (!typingElement || !textContainer || !heroTitleLockup) {
-            return;
-        }
-
-        typingElement.style.minHeight = "";
-        textContainer.style.minHeight = "";
-        textContainer.style.height = "";
-        heroTitleLockup.style.minHeight = "";
-        heroTitleLockup.style.height = "";
-    }
-
     function syncHeroReserveHeight() {
         if (!typingElement || !textContainer || !fixedElement || !heroTitleLockup) {
-            return;
-        }
-
-        if (window.innerWidth > 900) {
-            resetHeroReserveHeight();
             return;
         }
 
@@ -108,11 +91,12 @@ if (textElement) {
 
         const fixedHeight = Math.ceil(fixedElement.getBoundingClientRect().height);
         const blockGap = parseFloat(textContainerStyles.marginTop) || 0;
-        const reserveHeight = Math.max(measuredTextHeight, 72);
+        const safetySpace = window.innerWidth > 900 ? 4 : 8;
+        const reserveHeight = Math.max(measuredTextHeight + safetySpace, 72);
 
         typingElement.style.minHeight = `${reserveHeight}px`;
         textContainer.style.minHeight = `${reserveHeight}px`;
-        textContainer.style.height = "auto";
+        textContainer.style.height = `${reserveHeight}px`;
         heroTitleLockup.style.height = "auto";
         heroTitleLockup.style.minHeight = `${Math.ceil(fixedHeight + blockGap + reserveHeight)}px`;
     }
