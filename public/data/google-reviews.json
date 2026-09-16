@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T07:58:20.504Z",
+  "generatedAt": "2026-09-16T18:30:48.247Z",
   "isPlaceholder": false,
   "businessName": "Somos Soluciones Contables",
   "profileUrl": "https://maps.app.goo.gl/HiZke5s4AtENhopQ6",
@@ -8,15 +8,6 @@
   "fiveStarReviews": 2,
   "reviews": [
     {
-      "authorName": "Lucas Palacios",
-      "initials": "LP",
-      "rating": 5,
-      "text": "Excelente atención muchas gracias",
-      "dateLabel": "Hace 4 meses",
-      "authorPhotoUrl": "https://lh3.googleusercontent.com/a-/ALV-UjX7MGR3GDTcW6KQVTqecRVNSlwacubB0owK9GNWW6VNlTG42nI=s128-c0x00000000-cc-rp-mo",
-      "reviewUrl": "https://www.google.com/maps/contrib/102834493389600617795/reviews"
-    },
-    {
       "authorName": "Dani Segovia",
       "initials": "DS",
       "rating": 5,
@@ -24,6 +15,15 @@
       "dateLabel": "Hace 5 meses",
       "authorPhotoUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVa1d2hMtMe2sch0sazEDBIGilI0O5OU7amNFuaKrPpJckzVj4=s128-c0x00000000-cc-rp-mo",
       "reviewUrl": "https://www.google.com/maps/contrib/104125513873658667734/reviews"
+    },
+    {
+      "authorName": "Lucas Palacios",
+      "initials": "LP",
+      "rating": 5,
+      "text": "Excelente atención muchas gracias",
+      "dateLabel": "Hace 4 meses",
+      "authorPhotoUrl": "https://lh3.googleusercontent.com/a-/ALV-UjX7MGR3GDTcW6KQVTqecRVNSlwacubB0owK9GNWW6VNlTG42nI=s128-c0x00000000-cc-rp-mo",
+      "reviewUrl": "https://www.google.com/maps/contrib/102834493389600617795/reviews"
     }
   ]
 }
